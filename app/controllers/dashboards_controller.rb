@@ -6,4 +6,13 @@ class DashboardsController < ApplicationController
   def hi
   end
 
-end 
+  def personalized
+    @name = params[:name]
+  end
+
+  def reversed
+    @name = params[:name].reverse
+    render :personalized
+  end
+
+end

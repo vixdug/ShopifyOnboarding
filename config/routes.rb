@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   get '/hi' => 'dashboards#hi'
   get '/personalized/:name' => 'dashboards#personalized'
   get '/reversed/:name' => 'dashboards#reversed'
+
+  resources :users
+
 end
