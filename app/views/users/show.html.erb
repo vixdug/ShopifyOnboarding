@@ -9,3 +9,5 @@
   <%= f.email_field :email, required: true, class: 'form-control' %>
   <%= f.submit "Update", class: "btn btn-primary" %>
 <% end %>
+
+<%=link_to "Delete user", @user, method: :delete %>
