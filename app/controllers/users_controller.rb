@@ -1,35 +1,26 @@
 class UsersController < ApplicationController
 
   def new
-    @user = User.new
-  end
+end
 
-  def create
-  @user = User.new(first_name: params[:user][:first_name], last_name: params[:user][:last_name], email: params[:user][:email], password: params[:user][:password])
-  @user.save
-  redirect_to user_path(@user.id)
-  end
+def index
+end
 
-  def update
-    @user = User.find(params[:id])
-    @user.update_attributes(user_params)
-    redirect_to user_path(@user.id)
+def create
+  user = User.new(user_params)
+  if user.save
+    session[:user_id] = user.id
+    redirect_to '/login'
+  else
+    redirect_to '/signup'
   end
-
-  def show
-    @user= User.find(params[:id])
-  end
-
-  def destroy
-  @user = User.find(params[:id])
-  @user.destroy
 end
 
 
-  private
+private
 
-  def user_params
-    params.require(:user).permit(:email, :first_name, :last_name)
-  end
+def user_params
+  params.require(:user).permit(:first_name, :email, :password, :password_confirmation)
+end
 
 end
