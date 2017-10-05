@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  include ApplicationHelper
+
   def new
 end
 
@@ -10,6 +12,7 @@ def create
   user = User.new(user_params)
   if user.save
     session[:user_id] = user.id
+    flash[:success] = "Woohoo!"
     redirect_to '/login'
   else
     redirect_to '/signup'

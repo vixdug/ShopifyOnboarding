@@ -8,8 +8,20 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <header>
+ <%= render 'layouts/nav' %>
+</header>
 
+
+  <body>
+    <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %> fade in">
+                <%= value %>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+          </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

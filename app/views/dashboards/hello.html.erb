@@ -1,1 +1,59 @@
-<h3>back home</h3>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
+
+header, footer {
+    padding: 1em;
+    color: white;
+    background-color: black;
+    clear: left;
+    text-align: center;
+}
+
+nav {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 1em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul a {
+    text-decoration: none;
+}
+
+article {
+  text-align: center;
+  color: black;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<header>
+   <h1>Hello My Name Is: </h1>
+</header>
+
+
+
+<article>
+<h1><%= User.name %> <h1>
+</article>
+
+<footer>Copyright &copy; vix</footer>
+
+</div>
+
+</body>
+</html>
